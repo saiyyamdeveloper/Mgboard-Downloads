@@ -6,10 +6,10 @@
 
 | Field | Value |
 |---|---|
-| Version | **0.1.17-share-download** (versionCode 23) |
+| Version | **0.1.17-toolbar-x** (versionCode 24) |
 | Package | `io.github.saiyyamdeveloper.mgboard.android` |
 | Android | 8.0 (API 26)+, WebView-based |
-| नया feature | scored suggestions (top 3) + guarded auto-space + **Share बटन में direct download link** |
+| नया feature | **Gboard-style toolbar close button** (4-dot grid → circular grey ✕ / customize में ✓) + scored suggestions (top 3) + guarded auto-space + **Share बटन में direct download link** |
 | Direct download | [Mgboard-Android-latest.apk](https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest/download/Mgboard-Android-latest.apk) (click → seedha download start) |
 | Release page | [Latest release](https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest) |
 
@@ -44,6 +44,14 @@ sha256sum -c Mgboard-Android-latest.apk.sha256
 `OK` दिखे तो file असली है।
 
 ## Version history
+
+### 0.1.17-toolbar-x (versionCode 24) — 2026-09-20
+- **Gboard-style toolbar close button**: tools popup open hote hi top-left ka 4-dot grid **circular grey button + light ✕** ban jaata hai (tap par popup band)।
+- **Customize mode (pencil)** mein wahi jagah **✓** — tap par customize confirm।
+- Popup ka purana alag header row (duplicate ✕) hat gaya — tools ab seedhe toolbar row ke neeche dikhte hain (Gboard reference layout)।
+- Popup band hone par 4-dot grid bilkul waisa hi hai — wahi popup kholta hai।
+- Direct download share link unchanged; native DEX 0.1.16 se byte-identical।
+- 1015 automated checks (browser/native mock + Java unit) पास; real-phone E2E बाकी।
 
 ### 0.1.17-share-download (versionCode 23) — 2026-09-20
 - Share बटन अब **direct download link** देता है — receiver के phone पर link click करते ही APK download start (latest release से, stable asset name `Mgboard-Android-latest.apk`)।
