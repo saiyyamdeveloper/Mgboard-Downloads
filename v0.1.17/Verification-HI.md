@@ -3,9 +3,9 @@
 | Field | Value |
 |---|---|
 | File | `Mgboard-Android-0.1.17-share-download.apk` |
-| Size | 212,195 bytes |
-| SHA-256 | `df0ead30d9d52b0e147e8ff03b683a6e57e9fda8f1051fcf16811d868d9fe7bc` |
-| versionCode / versionName | 20 / `0.1.17-share-download` |
+| Size | 209,507 bytes |
+| SHA-256 | `3989e05adfcf9a3807258c8c638b92ef2bb993d28975c1bb63a3100a850f2257` |
+| versionCode / versionName | 21 / `0.1.17-share-download` |
 | Package | `io.github.saiyyamdeveloper.mgboard.android` |
 | minSdk / targetSdk | 26 / 35 |
 | Signing | Android Debug key, v2+v3 scheme verified (v1 off) |
