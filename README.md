@@ -6,10 +6,10 @@
 
 | Field | Value |
 |---|---|
-| Version | **0.1.17-toolbar-x** (versionCode 24) |
+| Version | **0.1.17-space-scrub** (versionCode 26) |
 | Package | `io.github.saiyyamdeveloper.mgboard.android` |
 | Android | 8.0 (API 26)+, WebView-based |
-| नया feature | **Gboard-style toolbar close button** (4-dot grid → circular grey ✕ / customize में ✓) + scored suggestions (top 3) + guarded auto-space + **Share बटन में direct download link** |
+| नया feature | **Gboard-style spacebar cursor scrubbing** (tap = space, horizontal drag = cursor scrub: velocity-scaled steps, grapheme-safe, haptic ticks, `‹ ›` cue, ghost-tap lockout) + Customize panel single-column + silent pin/unpin + Gboard-style toolbar close button (✕/✓) + scored suggestions (top 3) + guarded auto-space + **Share बटन में direct download link** |
 | Direct download | [Mgboard-Android-latest.apk](https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest/download/Mgboard-Android-latest.apk) (click → seedha download start) |
 | Release page | [Latest release](https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest) |
 
@@ -44,6 +44,23 @@ sha256sum -c Mgboard-Android-latest.apk.sha256
 `OK` दिखे तो file असली है।
 
 ## Version history
+
+### 0.1.17-space-scrub (versionCode 26) — 2026-09-20
+- **Gboard-style spacebar dual-mode**: tap = space (unchanged); horizontal drag = text cursor scrub।
+- Scrub activation: slop gate (8px) + direction bias (|dx| > 1.25·|dy|) — vertical slip par tap hi rehta hai।
+- Physics: velocity-scaled delta accumulator (baseline 12px/step, fast flick par 2.2× tak), per-event step cap।
+- Grapheme-safe cursor stepping (Devanagari matra, Masaram Gondi matra/virama, ZWJ emoji, flags, skin tones) — consonant ke beech matra nahi todti।
+- Har step par haptic tick (boundary par suppress); scrub ke dauran spacebar par `‹ ›` chevron + subtle darkening; second-finger ghost-tap lockout।
+- Scrub ke baad release par koi space nahi। Native cursor sync existing transactional `apply`→`setSelection` pipeline se — koi Java change nahi।
+- Customize single-column + silent pin/unpin + toolbar ✕/✓ + direct download link unchanged; native DEX 0.1.16 se byte-identical।
+- 1025 automated checks (browser/native mock + Java unit) पास; real-phone E2E बाकी।
+
+### 0.1.17-toolbar-v2 (versionCode 25) — 2026-09-20
+- **Customize mode (pencil) single-column panel**: saare options ek hi jagah, ek column mein, upar se neeche; left-right page-slide aur dots hata; panel vertical scroll।
+- **Pin/unpin silent**: drag-drop se pin/unpin chupke se (item visibly move); "pin ho gaya/unpin ho gaya" popup nahi; max-pin warning still।
+- Normal toolbar popup unchanged (2-column grid + pages); toolbar close affordance (✕/✓) unchanged।
+- Direct download share link unchanged; native DEX 0.1.16 se byte-identical।
+- 1016 automated checks (browser/native mock + Java unit) पास; real-phone E2E बाकी।
 
 ### 0.1.17-toolbar-x (versionCode 24) — 2026-09-20
 - **Gboard-style toolbar close button**: tools popup open hote hi top-left ka 4-dot grid **circular grey button + light ✕** ban jaata hai (tap par popup band)।
