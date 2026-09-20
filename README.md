@@ -6,43 +6,47 @@
 
 | Field | Value |
 |---|---|
-| Version | **0.1.17-share-download** (versionCode 22) |
+| Version | **0.1.17-share-download** (versionCode 23) |
 | Package | `io.github.saiyyamdeveloper.mgboard.android` |
 | Android | 8.0 (API 26)+, WebView-based |
-| नया feature | scored suggestions (top 3) + guarded auto-space + **Share बटन में सीधा download link** |
-| Install | [Latest release](https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest) से APK डाउनलोड करें |
+| नया feature | scored suggestions (top 3) + guarded auto-space + **Share बटन में direct download link** |
+| Direct download | [Mgboard-Android-latest.apk](https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest/download/Mgboard-Android-latest.apk) (click → seedha download start) |
+| Release page | [Latest release](https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest) |
 
 ## Install कैसे करें
 
-1. [Latest release](https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest) खोलें और APK download करें।
-2. फ़ोन पर "Unknown sources" (अनजान स्रोत) की अनुमति दें — installer पॉपअप में ही option मिलेगा।
-3. APK install करें। पहले से Mgboard लगा हो तो **Update** चुनें (uninstall की ज़रूरत नहीं, data रह जाएगा)।
-4. Settings → Language & Input में Mgboard active करके select करें।
+1. Keyboard से Share किया गया **direct link** click करें — APK download तुरंत start हो जाता है। (या [release page](https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest) से APK select करें।)
+2. Download complete होने पर file पर tap करें।
+3. फ़ोन पर "Unknown sources" (अनजान स्रोत) की अनुमति दें — installer पॉपअप में ही option मिलेगा।
+4. Install करें। पहले से Mgboard लगा हो तो **Update** चुनें (uninstall की ज़रूरत नहीं, data रह जाएगा)।
+5. Settings → Language & Input में Mgboard active करके select करें।
 
-## Share link क्यों बनाया गया
+## Share link कैसे काम करता है
 
-पहले कीबोर्ड के Share बटन में सिर्फ GitHub profile का link था, जिससे दूसरे को APK download नहीं मिल पा रहा था। अब Share text में यह permanent download link जाता है:
+पहले कीबोर्ड के Share बटन में सिर्फ GitHub profile का link था, जिससे दूसरे को APK download नहीं मिल पा रहा था। अब Share text में यह **direct download link** जाता है:
 
 ```
-https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest
+https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest/download/Mgboard-Android-latest.apk
 ```
 
-इसलिए जो भी नया version publish होता है, Share वाला download link अपने-आप उसी नए version पर ले जाता है — पुराना link कभी "भ्रामक पुराना" नहीं रहता। Share text में सिर्फ यही एक working download link है।
+इस link को click करते ही **seedha APK download start** हो जाता है — बीच में कोई page नहीं। `latest` isliye use hota hai kyunki jo bhi naya version publish hota hai, **wahi shared link apne-aap naya APK de deta hai**।
+
+**Stable asset name convention:** har future release mein APK ka file name `Mgboard-Android-latest.apk` hi rehta hai, taaki yeh direct link hamesha valid rahe। Version ka number release tag/notes mein hota hai.
 
 ## Checksum verify करना (optional but recommended)
 
 हर release में APK के साथ `.sha256` file होती है। Terminal/PC पर:
 
 ```sh
-sha256sum -c Mgboard-Android-0.1.17-share-download.apk.sha256
+sha256sum -c Mgboard-Android-latest.apk.sha256
 ```
 
 `OK` दिखे तो file असली है।
 
 ## Version history
 
-### 0.1.17-share-download (versionCode 22) — 2026-09-20
-- Share बटन अब सिर्फ public download page (यही repository) share करता है — receiver सीधे नया version install कर सकता है। Share text में private source link हटाकर सिर्फ working download link रखा गया।
+### 0.1.17-share-download (versionCode 23) — 2026-09-20
+- Share बटन अब **direct download link** देता है — receiver के phone पर link click करते ही APK download start (latest release से, stable asset name `Mgboard-Android-latest.apk`)।
 - Scored suggestions: 784 English + 844 Hindi + 624 Hinglish offline words, 168 curated bigram pairs, config-based weights (`w_lm=2.0`, `w_edit=1.5`, `w_freq=0.35`)।
 - Guarded auto-space: suggestion accept पर एक space, अगली punctuation अपने-आप space हटाती है, duplicate space नहीं, Enter trailing auto-space हटाकर newline/Send रखता है।
 - Keyboard की height और key layout unchanged; native DEX 0.1.16 से byte-identical।
