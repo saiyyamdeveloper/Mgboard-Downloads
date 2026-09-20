@@ -1,15 +1,15 @@
 # Mgboard-Downloads — मैसरम गोंडी कीबोर्ड APK
 
-यह repository केवल **Mgboard Android keyboard** के आधिकारिक downloadable APK का public archive है। सॉर्स कोड अलग (private) repository `saiyyamdeveloper/Mgboard` में है और इस repository में source नहीं शामिल है।
+यह repository केवल **Mgboard Android keyboard** के आधिकारिक downloadable APK का public archive है।
 
 ## नवीनतम version
 
 | Field | Value |
 |---|---|
-| Version | **0.1.17-share-download** (versionCode 21) |
+| Version | **0.1.17-share-download** (versionCode 22) |
 | Package | `io.github.saiyyamdeveloper.mgboard.android` |
 | Android | 8.0 (API 26)+, WebView-based |
-| नया feature | scored suggestions (top 3) + guarded auto-space + **Share बटन में सीधा download link + source link** |
+| नया feature | scored suggestions (top 3) + guarded auto-space + **Share बटन में सीधा download link** |
 | Install | [Latest release](https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest) से APK डाउनलोड करें |
 
 ## Install कैसे करें
@@ -21,14 +21,13 @@
 
 ## Share link क्यों बनाया गया
 
-पहले कीबोर्ड के Share बटन में सिर्फ GitHub profile का link था, जिससे दूसरे को APK download नहीं मिल पा रहा था। अब Share text में यह permanent links जाते हैं:
+पहले कीबोर्ड के Share बटन में सिर्फ GitHub profile का link था, जिससे दूसरे को APK download नहीं मिल पा रहा था। अब Share text में यह permanent download link जाता है:
 
 ```
 https://github.com/saiyyamdeveloper/Mgboard-Downloads/releases/latest
-GitHub (source): https://github.com/saiyyamdeveloper/Mgboard
 ```
 
-इसलिए जो भी नया version publish होता है, Share वाला download link अपने-आप उसी नए version पर ले जाता है — पुराना link कभी "भ्रामक पुराना" नहीं रहता। Source repository अभी private है, इसलिए source link केवल reference है; download link हमेशा public रहेगा।
+इसलिए जो भी नया version publish होता है, Share वाला download link अपने-आप उसी नए version पर ले जाता है — पुराना link कभी "भ्रामक पुराना" नहीं रहता। Share text में सिर्फ यही एक working download link है।
 
 ## Checksum verify करना (optional but recommended)
 
@@ -42,15 +41,15 @@ sha256sum -c Mgboard-Android-0.1.17-share-download.apk.sha256
 
 ## Version history
 
-### 0.1.17-share-download (versionCode 21) — 2026-09-20
-- Share बटन अब public download page (यही repository) + `Mgboard` source link share करता है — receiver सीधे नया version install कर सकता है।
+### 0.1.17-share-download (versionCode 22) — 2026-09-20
+- Share बटन अब सिर्फ public download page (यही repository) share करता है — receiver सीधे नया version install कर सकता है। Share text में private source link हटाकर सिर्फ working download link रखा गया।
 - Scored suggestions: 784 English + 844 Hindi + 624 Hinglish offline words, 168 curated bigram pairs, config-based weights (`w_lm=2.0`, `w_edit=1.5`, `w_freq=0.35`)।
 - Guarded auto-space: suggestion accept पर एक space, अगली punctuation अपने-आप space हटाती है, duplicate space नहीं, Enter trailing auto-space हटाकर newline/Send रखता है।
 - Keyboard की height और key layout unchanged; native DEX 0.1.16 से byte-identical।
 - 1013 automated checks (browser/native mock + Java unit) पास; real-phone E2E बाकी।
 
 ### 0.1.16-preview (versionCode 18) — 2026-09-19
-- भाषा-change popup suppression, barakhadi conjunct forms, geometry fixes। (Private Mgboard repository पर available)
+- भाषा-change popup suppression, barakhadi conjunct forms, geometry fixes।
 
 ## Privacy
 
